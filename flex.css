@@ -1,0 +1,89 @@
+/* flex.css */
+
+/* Copyright © Vincent Kooij 2025. All rights reserved. */
+
+/* begin flex container */
+.static-flex {
+   display: flex;
+   justify-content: space-between;
+}
+
+.small-flex, .large-flex {
+   display: flex;
+   flex-direction: column;
+   align-items: center;   /* center flex items that are smaller than the current width */
+}
+
+.small-flex > *, .large-flex > * {
+   width: 100%;   /* make flex items the same width, flex shrinks them if necessary */
+}
+
+@media (min-width: 48rem) {
+   .small-flex {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: unset;   /* stretch flex items vertically */
+   }
+}
+
+@media (min-width: 64rem) {
+   .large-flex {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: unset;   /* stretch flex items vertically */
+   }
+}
+/* end flex container */
+
+/* begin content container */
+.content-container > *:first-child { margin-top: 0; }
+.content-container > *:last-child { margin-bottom: 0; }
+/* end content container */
+
+/* begin center container */
+.center-container {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   min-height: 100%;
+}
+
+.center-container > *:first-child { margin-top: 0; }
+.center-container > *:last-child { margin-bottom: 0; }
+/* end center container */
+
+/* begin flex centered width */
+.zero-width {
+   margin: auto;
+   max-width: 0rem;
+}
+
+.aside-width {
+   margin: auto;
+   max-width: 16rem;
+}
+
+.content-width {
+   margin: auto;
+   max-width: 48rem;
+}
+
+.large-width {
+   margin: auto;
+   max-width: 64rem;
+}
+
+.extended-width {
+   margin: auto;
+   max-width: 68rem;
+}
+
+.small-flex > .zero-width, .large-flex > .zero-width,
+.small-flex > .aside-width, .large-flex > .aside-width,
+.small-flex > .content-width, .large-flex > .content-width,
+.small-flex > .large-width, .large-flex > .large-width,
+.small-flex > .extended-width, .large-flex > .extended-width {
+   margin: unset;
+}
+/* end flex centered width */
